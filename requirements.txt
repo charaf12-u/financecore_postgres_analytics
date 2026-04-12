@@ -1,0 +1,9 @@
+pandas
+sqlalchemy
+psycopg[binary]
+python-dotenv
+jupyter
+notebook
+ipykernel
+os
+logging
