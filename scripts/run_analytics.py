@@ -1,7 +1,6 @@
 import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from sqlalchemy import text
 from config.db_config import get_engine
 
@@ -23,4 +22,4 @@ tables = [
 with engine.connect() as conn:
     for t in tables:
         result = conn.execute(text(f"SELECT COUNT(*) FROM {t}"))
-        print(f"{t} ", result.scalar())
+        print(f"Count for {t}: {result.scalar()}")

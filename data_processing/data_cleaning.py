@@ -2,26 +2,22 @@ import pandas as pd
 
 def clean_data(file_path):
 
-    # Load data
+    #--> read data
     df = pd.read_csv(file_path)
 
-    # Remove spaces from column names
+    #--> remove l'espace in columns
     df.columns = df.columns.str.strip()
 
-    # Convert date
+    #--> Convert date
     df["date_transaction"] = pd.to_datetime(df["date_transaction"], errors="coerce")
 
-    # Remove duplicates
+    #--> Remove duplicate
     df = df.drop_duplicates()
 
-    # Handle missing values
-    df = df.fillna({
-        "montant": 0,
-        "montant_eur": 0,
-        "taux_change_eur": 0
-    })
+    #--> null values
+    df = df.dropna()
 
-    # Ensure numeric types
+    #--> numeric types
     numeric_cols = [
         "montant",
         "montant_eur",
@@ -29,11 +25,11 @@ def clean_data(file_path):
         "score_credit_client",
         "taux_interet"
     ]
-
     for col in numeric_cols:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
-
+    
+    #--> boolean types
     bool_cols = [
         "is_anomaly",
         "is_anomaly_amount",
@@ -43,5 +39,26 @@ def clean_data(file_path):
     for col in bool_cols:
         if col in df.columns:
             df[col] = df[col].astype(bool)
+
+    #--> string types
+    str_cols = [
+        "client_id",
+        "account_id",
+        "product_id",
+        "branch_id",
+        "categorie_risque",
+        "segment_client",
+        "statut",
+        "type_operation",    
+        "agence",
+        "produit",            
+        "categorie",           
+        "devise",
+        "transaction_id",
+    ]
+    for col in str_cols:
+        if col in df.columns:
+            df[col] = df[col].astype(str).str.strip()
+
 
     return df

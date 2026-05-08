@@ -1,136 +1,142 @@
 {
-  "jira_mapping": {
-    "epic": "Epic",
-    "task": "Tâche",
-    "subtask": "Sous-tâche"
-  },
-  "epics": [
-    {
-      "epic": "Analyse du Dataset FinanceCore",
-      "tasks": [
-        {
-          "task_name": "Explorer le fichier CSV",
-          "subtasks": [
-            "Charger financecore_clean.csv",
-            "Identifier les colonnes et types de données",
-            "Comprendre la signification métier des données"
-          ]
-        },
-        {
-          "task_name": "Identifier les entités principales",
-          "subtasks": [
-            "Définir Clients",
-            "Définir Comptes",
-            "Définir Transactions",
-            "Définir Produits et Agences"
-          ]
-        }
-      ]
+    "project_name": "FinanceCore Data Modeling & Analytics",
+    "project_type": "Data Engineering & Analytics",
+    "dataset": "financecore_clean.csv",
+    "total_rows": null,
+    "total_columns": null,
+    "deadline": null,
+    "jira_mapping": {
+        "epic": "Epic",
+        "task": "Tâche",
+        "subtask": "Sous-tâche"
     },
-    {
-      "epic": "Conception du Modèle Relationnel",
-      "tasks": [
+    "epics": [
         {
-          "task_name": "Définir le schéma de la base",
-          "subtasks": [
-            "Créer les tables principales",
-            "Définir les clés primaires",
-            "Définir les clés étrangères"
-          ]
+            "epic": "Analyse du Dataset FinanceCore",
+            "tasks": [
+                {
+                    "task_name": "Explorer le fichier CSV",
+                    "subtasks": [
+                        "Charger financecore_clean.csv",
+                        "Identifier les colonnes et types de données",
+                        "Comprendre la signification métier des données"
+                    ]
+                },
+                {
+                    "task_name": "Identifier les entités principales",
+                    "subtasks": [
+                        "Définir Clients",
+                        "Définir Comptes",
+                        "Définir Transactions",
+                        "Définir Produits et Agences"
+                    ]
+                }
+            ]
         },
         {
-          "task_name": "Créer le diagramme ERD",
-          "subtasks": [
-            "Utiliser dbdiagram ou Lucidchart",
-            "Définir les relations entre tables",
-            "Exporter le diagramme ERD"
-          ]
-        }
-      ]
-    },
-    {
-      "epic": "Implémentation PostgreSQL",
-      "tasks": [
-        {
-          "task_name": "Créer la base de données",
-          "subtasks": [
-            "Créer financecore_db",
-            "Configurer PostgreSQL",
-            "Tester la connexion"
-          ]
+            "epic": "Conception du Modèle Relationnel",
+            "tasks": [
+                {
+                    "task_name": "Définir le schéma de la base",
+                    "subtasks": [
+                        "Créer les tables principales",
+                        "Définir les clés primaires",
+                        "Définir les clés étrangères"
+                    ]
+                },
+                {
+                    "task_name": "Créer le diagramme ERD",
+                    "subtasks": [
+                        "Utiliser dbdiagram ou Lucidchart",
+                        "Définir les relations entre tables",
+                        "Exporter le diagramme ERD"
+                    ]
+                }
+            ]
         },
         {
-          "task_name": "Créer les tables SQL",
-          "subtasks": [
-            "Ajouter PRIMARY KEY",
-            "Ajouter FOREIGN KEY",
-            "Ajouter contraintes NOT NULL et CHECK"
-          ]
-        }
-      ]
-    },
-    {
-      "epic": "Chargement des Données",
-      "tasks": [
-        {
-          "task_name": "Configurer SQLAlchemy",
-          "subtasks": [
-            "Créer la connexion Python PostgreSQL",
-            "Tester la connexion à la base",
-            "Préparer l'insertion des données"
-          ]
+            "epic": "Implémentation PostgreSQL",
+            "tasks": [
+                {
+                    "task_name": "Créer la base de données",
+                    "subtasks": [
+                        "Créer financecore_db",
+                        "Configurer PostgreSQL",
+                        "Tester la connexion"
+                    ]
+                },
+                {
+                    "task_name": "Créer les tables SQL",
+                    "subtasks": [
+                        "Ajouter PRIMARY KEY",
+                        "Ajouter FOREIGN KEY",
+                        "Ajouter contraintes NOT NULL et CHECK"
+                    ]
+                }
+            ]
         },
         {
-          "task_name": "Importer les données CSV",
-          "subtasks": [
-            "Séparer les données par table",
-            "Insérer les données avec SQLAlchemy",
-            "Gérer les conflits ON CONFLICT"
-          ]
-        }
-      ]
-    },
-    {
-      "epic": "Analyse SQL et KPIs",
-      "tasks": [
-        {
-          "task_name": "Créer les requêtes analytiques",
-          "subtasks": [
-            "Calculer total des transactions par agence",
-            "Calculer moyenne des transactions",
-            "Analyse des transactions par mois"
-          ]
+            "epic": "Chargement des Données",
+            "tasks": [
+                {
+                    "task_name": "Configurer SQLAlchemy",
+                    "subtasks": [
+                        "Créer la connexion Python PostgreSQL",
+                        "Tester la connexion à la base",
+                        "Préparer l'insertion des données"
+                    ]
+                },
+                {
+                    "task_name": "Importer les données CSV",
+                    "subtasks": [
+                        "Séparer les données par table",
+                        "Insérer les données avec SQLAlchemy",
+                        "Gérer les conflits ON CONFLICT"
+                    ]
+                }
+            ]
         },
         {
-          "task_name": "Créer des vues analytiques",
-          "subtasks": [
-            "Créer view KPI transactions",
-            "Tester les requêtes SQL",
-            "Préparer les résultats pour dashboard"
-          ]
-        }
-      ]
-    },
-    {
-      "epic": "Documentation et Livraison",
-      "tasks": [
-        {
-          "task_name": "Préparer le dépôt GitHub",
-          "subtasks": [
-            "Ajouter code et scripts SQL",
-            "Ajouter ERD et dataset",
-            "Organiser les dossiers du projet"
-          ]
+            "epic": "Analyse SQL et KPIs",
+            "tasks": [
+                {
+                    "task_name": "Créer les requêtes analytiques",
+                    "subtasks": [
+                        "Calculer total des transactions par agence",
+                        "Calculer moyenne des transactions",
+                        "Analyse des transactions par mois"
+                    ]
+                },
+                {
+                    "task_name": "Créer des vues analytiques",
+                    "subtasks": [
+                        "Créer view KPI transactions",
+                        "Tester les requêtes SQL",
+                        "Préparer les résultats pour dashboard"
+                    ]
+                }
+            ]
         },
         {
-          "task_name": "Préparer la démonstration",
-          "subtasks": [
-            "Expliquer le modèle relationnel",
-            "Montrer la création des tables",
-            "Exécuter les requêtes SQL principales"
-          ]
+            "epic": "Documentation et Livraison",
+            "tasks": [
+                {
+                    "task_name": "Préparer le dépôt GitHub",
+                    "subtasks": [
+                        "Ajouter code et scripts SQL",
+                        "Ajouter ERD et dataset",
+                        "Organiser les dossiers du projet"
+                    ]
+                },
+                {
+                    "task_name": "Préparer la démonstration",
+                    "subtasks": [
+                        "Expliquer le modèle relationnel",
+                        "Montrer la création des tables",
+                        "Exécuter les requêtes SQL principales"
+                    ]
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }

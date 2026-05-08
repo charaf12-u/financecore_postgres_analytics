@@ -54,9 +54,14 @@ SELECT
     COUNT(*) AS total_transactions,
     SUM(CASE WHEN a.is_anomaly = TRUE THEN 1 ELSE 0 END) AS nb_anomalies,
     ROUND(
-        100.0 * SUM(CASE WHEN a.is_anomaly = TRUE THEN 1 ELSE 0 END)
-        / COUNT(*),
-        2
+        100.0 * SUM(
+                    CASE
+                    WHEN a.is_anomaly = TRUE
+                    THEN 1
+                    ELSE 0
+                    END
+                )
+        / COUNT(*), 2
     ) AS taux_anomalie
 FROM transaction t
 LEFT JOIN anomalie a ON t.transaction_id = a.transaction_id;
